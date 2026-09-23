@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>RRHH - Marcaciones</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; background:#f4f6f8; }
+  h1 { color:#2c3e50; }
+  form, .filtros { background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; box-shadow:0 1px 3px rgba(0,0,0,.1);}
+  input, select { margin:4px; padding:6px; }
+  table { width:100%; border-collapse:collapse; background:#fff; }
+  th, td { border:1px solid #ddd; padding:8px; text-align:center; font-size:14px; }
+  th { background:#2c3e50; color:#fff; }
+  .PUNTUAL { color:green; font-weight:bold; }
+  .ATRASO { color:red; font-weight:bold; }
+  .INCOMPLETO { color:orange; font-weight:bold; }
+  button { cursor:pointer; padding:5px 10px; }
+</style>
+</head>
+<body>
+  <h1>Registro de Marcaciones - RRHH</h1>
+
+  <form id="formMarcacion">
+    <input type="hidden" id="id">
+    <input type="text" id="codigo_empleado" placeholder="Código empleado" required>
+    <input type="text" id="nombre_empleado" placeholder="Nombre completo" required>
+    <input type="date" id="fecha" required>
+    <input type="time" id="hora_ingreso_programada" required>
+    <input type="time" id="hora_ingreso_real" required>
+    <input type="time" id="hora_salida_programada">
+    <input type="time" id="hora_salida_real">
+    <input type="text" id="observacion" placeholder="Observación">
+    <button type="submit">Guardar</button>
+    <button type="button" id="btnCancelar">Cancelar</button>
+  </form>
+
+  <div class="filtros">
+    <input type="text" id="filtroEmpleado" placeholder="Filtrar por código empleado">
+    <input type="date" id="filtroFecha">
+    <button id="btnFiltrar">Filtrar</button>
+    <button id="btnLimpiar">Limpiar</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th><th>Empleado</th><th>Nombre</th><th>Fecha</th>
+        <th>Ingreso Prog.</th><th>Ingreso Real</th>
+        <th>Salida Prog.</th><th>Salida Real</th>
+        <th>Estado</th><th>Observación</th><th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="tablaMarcaciones"></tbody>
+  </table>
+
+  <script src="app.js"></script>
+</body>
+</html>
